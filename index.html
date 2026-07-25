@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOJ Criminal Court Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">MOJ</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#attendance">Attendance</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Ministry of Justice - Criminal Court Portal</h1>
+    <p>Employee attendance is only allowed inside the building using GPS verification.</p>
+    <a href="#attendance" class="btn">Go to Attendance</a>
+  </section>
+
+  <section id="attendance" class="section">
+    <h2>Employee Attendance</h2>
+
+    <div class="card">
+      <label>Employee Name</label>
+      <input type="text" id="employeeName" placeholder="Enter your name" />
+
+      <label>Employee ID</label>
+      <input type="text" id="employeeId" placeholder="Enter your ID" />
+
+      <label>Current Status</label>
+      <input type="text" id="locationStatus" placeholder="Press Get Location" readonly />
+
+      <div class="buttons">
+        <button onclick="getLocation()">Get Location</button>
+        <button onclick="markAttendance()">Mark Attendance</button>
+      </div>
+
+      <p id="message"></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="attendanceTable"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About</h2>
+    <div class="card">
+      <p>This is a simple training project for the Ministry of Justice Criminal Court.</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
