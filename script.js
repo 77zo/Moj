@@ -19,12 +19,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
   const φ2 = lat2 * Math.PI / 180;
   const Δφ = (lat2 - lat1) * Math.PI / 180;
   const Δλ = (lon2 - lon1) * Math.PI / 180;
-
-  const a =
-    Math.sin(Δφ / 2) ** 2 +
-    Math.cos(φ1) * Math.cos(φ2) *
-    Math.sin(Δλ / 2) ** 2;
-
+  const a = Math.sin(Δφ / 2) ** 2 + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) ** 2;
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
 }
@@ -44,7 +39,6 @@ function verifyLocation() {
       const userLat = position.coords.latitude;
       const userLng = position.coords.longitude;
       const distance = getDistance(userLat, userLng, buildingLat, buildingLng);
-
       distanceInfo.value = `${distance.toFixed(2)} meters`;
 
       if (distance <= allowedRadius) {
@@ -123,12 +117,8 @@ function applyLanguage(selected) {
     ? "Ministry of Justice | Criminal Court Portal"
     : "وزارة العدل | بوابة المحكمة الجزائية";
 
-  if (!locationStatus.value) {
-    locationStatus.placeholder = selected === "en" ? "Not verified yet" : "لم يتم التحقق بعد";
-  }
-  if (!distanceInfo.value) {
-    distanceInfo.placeholder = selected === "en" ? "Waiting for GPS..." : "بانتظار GPS...";
-  }
+  locationStatus.placeholder = selected === "en" ? "Not verified yet" : "لم يتم التحقق بعد";
+  distanceInfo.placeholder = selected === "en" ? "Waiting for GPS..." : "بانتظار GPS...";
 }
 
 langToggle.addEventListener("click", () => {
