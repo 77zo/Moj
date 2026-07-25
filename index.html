@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ministry of Justice - Criminal Court Portal</title>
+  <title>Ministry of Justice | Criminal Court Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
+  <header class="topbar">
     <div class="brand">
-      <img
-        src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3873bba621c042ce34b4d5b5ffdd932aad2975bc.jpg"
-        alt="Ministry of Justice Logo"
-        class="logo"
-      />
-      <div class="brand-text">
-        <h1>Ministry of Justice</h1>
-        <p>Criminal Court Portal</p>
+      <img class="brand-logo" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3873bba621c042ce34b4d5b5ffdd932aad2975bc.jpg" alt="Ministry of Justice Logo">
+      <div>
+        <div class="brand-name">Ministry of Justice</div>
+        <div class="brand-sub">Criminal Court Portal</div>
       </div>
     </div>
 
     <nav class="nav">
       <a href="#home">Home</a>
+      <a href="#services">Services</a>
       <a href="#attendance">Attendance</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -29,47 +29,89 @@
   </header>
 
   <section id="home" class="hero">
-    <div class="hero-content">
-      <h2>Welcome to the Criminal Court Portal</h2>
+    <div class="hero-copy">
+      <span class="badge">Official Internal Portal</span>
+      <h1>Secure access for court operations and employee attendance</h1>
       <p>
-        A simple internal website for employee attendance and court information.
-        Attendance is only allowed when the employee is physically inside the building.
+        A clean and professional portal designed for the Ministry of Justice Criminal Court.
+        Attendance is only approved when the employee is physically inside the building.
       </p>
-      <a href="#attendance" class="btn-gold">Go to Attendance</a>
+      <div class="hero-actions">
+        <a href="#attendance" class="btn primary">Verify Attendance</a>
+        <a href="#services" class="btn secondary">View Services</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-illustration">
+        <div class="illustration-box">
+          <div class="circle one"></div>
+          <div class="circle two"></div>
+          <div class="bars">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <main class="container">
+    <section id="services" class="section">
+      <div class="section-head">
+        <h2>Core Services</h2>
+        <p>Simple access points for internal court operations.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Case Information</h3>
+          <p>View essential court case details and internal references.</p>
+        </article>
+        <article class="card">
+          <h3>Employee Attendance</h3>
+          <p>Mark attendance only when the employee is inside the building.</p>
+        </article>
+        <article class="card">
+          <h3>Official Contact</h3>
+          <p>Quick access to internal communication and support details.</p>
+        </article>
+      </div>
+    </section>
+
     <section id="attendance" class="section">
-      <h3 class="section-title">Employee Attendance</h3>
-      <div class="card">
-        <div class="grid">
-          <div>
+      <div class="section-head">
+        <h2>Employee Attendance</h2>
+        <p>GPS verification is required before marking attendance.</p>
+      </div>
+
+      <div class="panel">
+        <div class="form-grid">
+          <div class="field">
             <label for="employeeName">Employee Name</label>
-            <input type="text" id="employeeName" placeholder="Enter employee name" />
+            <input id="employeeName" type="text" placeholder="Enter employee name">
           </div>
 
-          <div>
+          <div class="field">
             <label for="employeeId">Employee ID</label>
-            <input type="text" id="employeeId" placeholder="Enter employee ID" />
+            <input id="employeeId" type="text" placeholder="Enter employee ID">
           </div>
         </div>
 
-        <div class="grid">
-          <div>
+        <div class="form-grid">
+          <div class="field">
             <label for="locationStatus">Location Status</label>
-            <input type="text" id="locationStatus" placeholder="Click Verify Location" readonly />
+            <input id="locationStatus" type="text" placeholder="Not verified yet" readonly>
           </div>
 
-          <div>
-            <label for="distanceInfo">Distance Info</label>
-            <input type="text" id="distanceInfo" placeholder="Waiting for GPS..." readonly />
+          <div class="field">
+            <label for="distanceInfo">Distance</label>
+            <input id="distanceInfo" type="text" placeholder="Waiting for GPS..." readonly>
           </div>
         </div>
 
         <div class="actions">
-          <button class="btn-outline" onclick="verifyLocation()">Verify Location</button>
-          <button class="btn-green" onclick="markAttendance()">Mark Attendance</button>
+          <button class="btn outline" onclick="verifyLocation()">Verify Location</button>
+          <button class="btn success" onclick="markAttendance()">Mark Attendance</button>
         </div>
 
         <p id="message" class="message"></p>
@@ -91,23 +133,39 @@
     </section>
 
     <section id="about" class="section">
-      <h3 class="section-title">About the Portal</h3>
-      <div class="card">
+      <div class="section-head">
+        <h2>About the Portal</h2>
+        <p>Designed to reflect a trustworthy and official government-style interface.</p>
+      </div>
+
+      <div class="panel info">
         <p>
-          This training project was created for the Ministry of Justice Criminal Court.
-          It demonstrates a clean internal portal design with GPS-based attendance verification.
+          The Ministry of Justice supervises courts and provides judicial services across the Kingdom.
+          This portal is a training project inspired by that official environment and structured for clarity, security, and ease of use.
         </p>
       </div>
     </section>
 
     <section id="contact" class="section">
-      <h3 class="section-title">Contact</h3>
-      <div class="card">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Internal contact details for the training portal.</p>
+      </div>
+
+      <div class="panel info">
         <p>Email: info@moj.gov.sa</p>
         <p>Phone: 1950</p>
       </div>
     </section>
   </main>
+
+  <div class="cookie-popup">
+    <div>
+      <strong>Cookie Consent</strong>
+      <p>This portal uses cookies for a better user experience.</p>
+    </div>
+    <button>Accept</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
