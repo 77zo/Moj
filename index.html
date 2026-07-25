@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,31 +14,35 @@
     <div class="brand">
       <img class="brand-logo" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3873bba621c042ce34b4d5b5ffdd932aad2975bc.jpg" alt="Ministry of Justice Logo">
       <div>
-        <div class="brand-name">Ministry of Justice</div>
-        <div class="brand-sub">Criminal Court Portal</div>
+        <div class="brand-name" data-en="Ministry of Justice" data-ar="وزارة العدل">Ministry of Justice</div>
+        <div class="brand-sub" data-en="Criminal Court Portal" data-ar="بوابة المحكمة الجزائية">Criminal Court Portal</div>
       </div>
     </div>
 
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#attendance">Attendance</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="top-actions">
+      <button id="langToggle" class="lang-btn">AR</button>
+      <nav class="nav">
+        <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+        <a href="#attendance" data-en="Attendance" data-ar="الحضور">Attendance</a>
+        <a href="#location" data-en="Location" data-ar="الموقع">Location</a>
+        <a href="#about" data-en="About" data-ar="عن الموقع">About</a>
+        <a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <section id="home" class="hero">
     <div class="hero-copy">
-      <span class="badge">Official Internal Portal</span>
-      <h1>Secure access for court operations and employee attendance</h1>
-      <p>
-        A clean and professional portal designed for the Ministry of Justice Criminal Court.
-        Attendance is only approved when the employee is physically inside the building.
+      <span class="badge" data-en="Official Internal Portal" data-ar="بوابة داخلية رسمية">Official Internal Portal</span>
+      <h1 data-en="Secure access for court operations and employee attendance" data-ar="وصول آمن لعمليات المحكمة وتحضير الموظفين">Secure access for court operations and employee attendance</h1>
+      <p data-en="A clean and professional portal designed for the Ministry of Justice Criminal Court. Attendance is only approved when the employee is physically inside the building."
+         data-ar="بوابة نظيفة واحترافية مصممة للمحكمة الجزائية بوزارة العدل. لا يتم اعتماد الحضور إلا إذا كان الموظف داخل المبنى فعليًا.">
+        A clean and professional portal designed for the Ministry of Justice Criminal Court. Attendance is only approved when the employee is physically inside the building.
       </p>
       <div class="hero-actions">
-        <a href="#attendance" class="btn primary">Verify Attendance</a>
-        <a href="#services" class="btn secondary">View Services</a>
+        <a href="#attendance" class="btn primary" data-en="Verify Attendance" data-ar="التحقق من الحضور">Verify Attendance</a>
+        <a href="#services" class="btn secondary" data-en="View Services" data-ar="عرض الخدمات">View Services</a>
       </div>
     </div>
 
@@ -58,60 +62,60 @@
   <main class="container">
     <section id="services" class="section">
       <div class="section-head">
-        <h2>Core Services</h2>
-        <p>Simple access points for internal court operations.</p>
+        <h2 data-en="Core Services" data-ar="الخدمات الأساسية">Core Services</h2>
+        <p data-en="Simple access points for internal court operations." data-ar="مداخل بسيطة لعمليات المحكمة الداخلية.">Simple access points for internal court operations.</p>
       </div>
 
       <div class="cards">
         <article class="card">
-          <h3>Case Information</h3>
-          <p>View essential court case details and internal references.</p>
+          <h3 data-en="Case Information" data-ar="معلومات القضايا">Case Information</h3>
+          <p data-en="View essential court case details and internal references." data-ar="عرض تفاصيل القضايا والمرجعيات الداخلية الأساسية.">View essential court case details and internal references.</p>
         </article>
         <article class="card">
-          <h3>Employee Attendance</h3>
-          <p>Mark attendance only when the employee is inside the building.</p>
+          <h3 data-en="Employee Attendance" data-ar="تحضير الموظفين">Employee Attendance</h3>
+          <p data-en="Mark attendance only when the employee is inside the building." data-ar="تسجيل الحضور فقط عندما يكون الموظف داخل المبنى.">Mark attendance only when the employee is inside the building.</p>
         </article>
         <article class="card">
-          <h3>Official Contact</h3>
-          <p>Quick access to internal communication and support details.</p>
+          <h3 data-en="Official Contact" data-ar="التواصل الرسمي">Official Contact</h3>
+          <p data-en="Quick access to internal communication and support details." data-ar="وصول سريع لبيانات التواصل والدعم الداخلي.">Quick access to internal communication and support details.</p>
         </article>
       </div>
     </section>
 
     <section id="attendance" class="section">
       <div class="section-head">
-        <h2>Employee Attendance</h2>
-        <p>GPS verification is required before marking attendance.</p>
+        <h2 data-en="Employee Attendance" data-ar="تحضير الموظفين">Employee Attendance</h2>
+        <p data-en="GPS verification is required before marking attendance." data-ar="يجب التحقق من الموقع عبر GPS قبل تسجيل الحضور.">GPS verification is required before marking attendance.</p>
       </div>
 
       <div class="panel">
         <div class="form-grid">
           <div class="field">
-            <label for="employeeName">Employee Name</label>
-            <input id="employeeName" type="text" placeholder="Enter employee name">
+            <label for="employeeName" data-en="Employee Name" data-ar="اسم الموظف">Employee Name</label>
+            <input id="employeeName" type="text" placeholder="Enter employee name" data-en-placeholder="Enter employee name" data-ar-placeholder="أدخل اسم الموظف">
           </div>
 
           <div class="field">
-            <label for="employeeId">Employee ID</label>
-            <input id="employeeId" type="text" placeholder="Enter employee ID">
+            <label for="employeeId" data-en="Employee ID" data-ar="الرقم الوظيفي">Employee ID</label>
+            <input id="employeeId" type="text" placeholder="Enter employee ID" data-en-placeholder="Enter employee ID" data-ar-placeholder="أدخل الرقم الوظيفي">
           </div>
         </div>
 
         <div class="form-grid">
           <div class="field">
-            <label for="locationStatus">Location Status</label>
+            <label for="locationStatus" data-en="Location Status" data-ar="حالة الموقع">Location Status</label>
             <input id="locationStatus" type="text" placeholder="Not verified yet" readonly>
           </div>
 
           <div class="field">
-            <label for="distanceInfo">Distance</label>
+            <label for="distanceInfo" data-en="Distance" data-ar="المسافة">Distance</label>
             <input id="distanceInfo" type="text" placeholder="Waiting for GPS..." readonly>
           </div>
         </div>
 
         <div class="actions">
-          <button class="btn outline" onclick="verifyLocation()">Verify Location</button>
-          <button class="btn success" onclick="markAttendance()">Mark Attendance</button>
+          <button class="btn outline" onclick="verifyLocation()" data-en="Verify Location" data-ar="التحقق من الموقع">Verify Location</button>
+          <button class="btn success" onclick="markAttendance()" data-en="Mark Attendance" data-ar="تسجيل الحضور">Mark Attendance</button>
         </div>
 
         <p id="message" class="message"></p>
@@ -120,10 +124,10 @@
           <table>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>ID</th>
-                <th>Time</th>
-                <th>Status</th>
+                <th data-en="Name" data-ar="الاسم">Name</th>
+                <th data-en="ID" data-ar="الرقم">ID</th>
+                <th data-en="Time" data-ar="الوقت">Time</th>
+                <th data-en="Status" data-ar="الحالة">Status</th>
               </tr>
             </thead>
             <tbody id="attendanceTable"></tbody>
@@ -132,24 +136,54 @@
       </div>
     </section>
 
+    <section id="location" class="section">
+      <div class="section-head">
+        <h2 data-en="Court Location" data-ar="موقع المحكمة">Court Location</h2>
+        <p data-en="Official Google Maps location for the court." data-ar="موقع المحكمة الرسمي على خرائط Google.">Official Google Maps location for the court.</p>
+      </div>
+
+      <div class="panel location-panel">
+        <div class="location-text">
+          <h3 data-en="Criminal Court Location" data-ar="موقع المحكمة الجزائية">Criminal Court Location</h3>
+          <p data-en="Use the button below to open the court location in Google Maps."
+             data-ar="استخدم الزر أدناه لفتح موقع المحكمة في خرائط Google.">
+            Use the button below to open the court location in Google Maps.
+          </p>
+          <a class="btn primary" href="https://maps.app.goo.gl/JB6rCYUeUagvqVYr7" target="_blank" rel="noopener noreferrer" data-en="Open in Google Maps" data-ar="فتح في خرائط Google">Open in Google Maps</a>
+        </div>
+
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?q=https://maps.app.goo.gl/JB6rCYUeUagvqVYr7&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="section">
       <div class="section-head">
-        <h2>About the Portal</h2>
-        <p>Designed to reflect a trustworthy and official government-style interface.</p>
+        <h2 data-en="About the Portal" data-ar="عن البوابة">About the Portal</h2>
+        <p data-en="Designed to reflect a trustworthy and official government-style interface."
+           data-ar="مصمم ليعكس واجهة حكومية موثوقة ورسمية.">
+          Designed to reflect a trustworthy and official government-style interface.
+        </p>
       </div>
 
       <div class="panel info">
-        <p>
-          The Ministry of Justice supervises courts and provides judicial services across the Kingdom.
-          This portal is a training project inspired by that official environment and structured for clarity, security, and ease of use.
+        <p data-en="The Ministry of Justice supervises courts and provides judicial services across the Kingdom. This portal is a training project inspired by that official environment and structured for clarity, security, and ease of use."
+           data-ar="تشرف وزارة العدل على المحاكم وتقدم الخدمات العدلية في مختلف أنحاء المملكة. هذه البوابة مشروع تدريبي مستوحى من هذا الطابع الرسمي، ومصمم للوضوح والأمان وسهولة الاستخدام.">
+          The Ministry of Justice supervises courts and provides judicial services across the Kingdom. This portal is a training project inspired by that official environment and structured for clarity, security, and ease of use.
         </p>
       </div>
     </section>
 
     <section id="contact" class="section">
       <div class="section-head">
-        <h2>Contact</h2>
-        <p>Internal contact details for the training portal.</p>
+        <h2 data-en="Contact" data-ar="التواصل">Contact</h2>
+        <p data-en="Internal contact details for the training portal." data-ar="بيانات التواصل الداخلية الخاصة بالبوابة التدريبية.">Internal contact details for the training portal.</p>
       </div>
 
       <div class="panel info">
@@ -159,12 +193,12 @@
     </section>
   </main>
 
-  <div class="cookie-popup">
+  <div class="cookie-popup" id="cookiePopup">
     <div>
-      <strong>Cookie Consent</strong>
-      <p>This portal uses cookies for a better user experience.</p>
+      <strong data-en="Cookie Consent" data-ar="موافقة الكوكيز">Cookie Consent</strong>
+      <p data-en="This portal uses cookies for a better user experience." data-ar="تستخدم هذه البوابة ملفات تعريف الارتباط لتحسين تجربة الاستخدام.">This portal uses cookies for a better user experience.</p>
     </div>
-    <button>Accept</button>
+    <button id="cookieAccept" data-en="Accept" data-ar="موافقة">Accept</button>
   </div>
 
   <script src="script.js"></script>
