@@ -1,58 +1,70 @@
-const message = document.getElementById("message");
 const attendanceTable = document.getElementById("attendanceTable");
+const message = document.getElementById("message");
 const locationStatus = document.getElementById("locationStatus");
+const distanceInfo = document.getElementById("distanceInfo");
 
-let userLat = null;
-let userLng = null;
+let verifiedInside = false;
+let verifiedDistance = null;
+let verifiedLat = null;
+let verifiedLng = null;
 
-// Replace these with the real building coordinates later
 const buildingLat = 21.3891;
 const buildingLng = 39.8579;
-const allowedRadius = 100; // meters
+const allowedRadius = 100;
 
 function getDistance(lat1, lon1, lat2, lon2) {
-  const R = 6371e3;
-  const φ1 = lat1 * Math.PI / 180;
-  const φ2 = lat2 * Math.PI / 180;
-  const Δφ = (lat2 - lat1) * Math.PI / 180;
-  const Δλ = (lon2 - lon1) * Math.PI / 180;
+  const R = 6371000;
+  const φ1 = (lat1 * Math.PI) / 180;
+  const φ2 = (lat2 * Math.PI) / 180;
+  const Δφ = ((lat2 - lat1) * Math.PI) / 180;
+  const Δλ = ((lon2 - lon1) * Math.PI) / 180;
 
-  const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-            Math.cos(φ1) * Math.cos(φ2) *
-            Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+  const a =
+    Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+    Math.cos(φ1) * Math.cos(φ2) *
+    Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
 
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
 }
 
-function getLocation() {
+function verifyLocation() {
   if (!navigator.geolocation) {
-    message.textContent = "Geolocation is not supported by your browser.";
-    message.className = "error";
+    message.textContent = "Geolocation is not supported by this browser.";
+    message.className = "message error";
     return;
   }
 
+  message.textContent = "Verifying location...";
+  message.className = "message";
+
   navigator.geolocation.getCurrentPosition(
     (position) => {
-      userLat = position.coords.latitude;
-      userLng = position.coords.longitude;
+      verifiedLat = position.coords.latitude;
+      verifiedLng = position.coords.longitude;
 
-      const distance = getDistance(userLat, userLng, buildingLat, buildingLng);
+      const distance = getDistance(verifiedLat, verifiedLng, buildingLat, buildingLng);
+      verifiedDistance = distance.toFixed(2);
 
+      distanceInfo.value = `${verifiedDistance} meters`;
       if (distance <= allowedRadius) {
+        verifiedInside = true;
         locationStatus.value = "Inside Building";
-        message.textContent = "Location verified: employee is inside the building.";
-        message.className = "success";
+        message.textContent = "Location verified successfully.";
+        message.className = "message success";
       } else {
+        verifiedInside = false;
         locationStatus.value = "Outside Building";
-        message.textContent = "Access denied: employee is outside the allowed building area.";
-        message.className = "error";
+        message.textContent = "Access denied: employee is outside the building.";
+        message.className = "message error";
       }
     },
     () => {
-      message.textContent = "Unable to get location. Please allow location access.";
-      message.className = "error";
-    }
+      verifiedInside = false;
+      message.textContent = "Unable to access location. Please allow GPS permission.";
+      message.className = "message error";
+    },
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
   );
 }
 
@@ -62,13 +74,13 @@ function markAttendance() {
 
   if (!name || !id) {
     message.textContent = "Please enter employee name and ID.";
-    message.className = "error";
+    message.className = "message error";
     return;
   }
 
-  if (locationStatus.value !== "Inside Building") {
-    message.textContent = "Attendance can only be marked when the employee is inside the building.";
-    message.className = "error";
+  if (!verifiedInside) {
+    message.textContent = "Attendance cannot be marked unless the employee is inside the building.";
+    message.className = "message error";
     return;
   }
 
@@ -83,9 +95,11 @@ function markAttendance() {
   attendanceTable.appendChild(row);
 
   message.textContent = "Attendance marked successfully.";
-  message.className = "success";
+  message.className = "message success";
 
   document.getElementById("employeeName").value = "";
   document.getElementById("employeeId").value = "";
   locationStatus.value = "";
+  distanceInfo.value = "";
+  verifiedInside = false;
 }
