@@ -3,65 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MOJ Criminal Court Portal</title>
+  <title>Ministry of Justice - Criminal Court Portal</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
-    <div class="logo">MOJ</div>
-    <nav>
+    <div class="brand">
+      <img
+        src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3873bba621c042ce34b4d5b5ffdd932aad2975bc.jpg"
+        alt="Ministry of Justice Logo"
+        class="logo"
+      />
+      <div class="brand-text">
+        <h1>Ministry of Justice</h1>
+        <p>Criminal Court Portal</p>
+      </div>
+    </div>
+
+    <nav class="nav">
       <a href="#home">Home</a>
       <a href="#attendance">Attendance</a>
       <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section id="home" class="hero">
-    <h1>Ministry of Justice - Criminal Court Portal</h1>
-    <p>Employee attendance is only allowed inside the building using GPS verification.</p>
-    <a href="#attendance" class="btn">Go to Attendance</a>
+    <div class="hero-content">
+      <h2>Welcome to the Criminal Court Portal</h2>
+      <p>
+        A simple internal website for employee attendance and court information.
+        Attendance is only allowed when the employee is physically inside the building.
+      </p>
+      <a href="#attendance" class="btn-gold">Go to Attendance</a>
+    </div>
   </section>
 
-  <section id="attendance" class="section">
-    <h2>Employee Attendance</h2>
+  <main class="container">
+    <section id="attendance" class="section">
+      <h3 class="section-title">Employee Attendance</h3>
+      <div class="card">
+        <div class="grid">
+          <div>
+            <label for="employeeName">Employee Name</label>
+            <input type="text" id="employeeName" placeholder="Enter employee name" />
+          </div>
 
-    <div class="card">
-      <label>Employee Name</label>
-      <input type="text" id="employeeName" placeholder="Enter your name" />
+          <div>
+            <label for="employeeId">Employee ID</label>
+            <input type="text" id="employeeId" placeholder="Enter employee ID" />
+          </div>
+        </div>
 
-      <label>Employee ID</label>
-      <input type="text" id="employeeId" placeholder="Enter your ID" />
+        <div class="grid">
+          <div>
+            <label for="locationStatus">Location Status</label>
+            <input type="text" id="locationStatus" placeholder="Click Verify Location" readonly />
+          </div>
 
-      <label>Current Status</label>
-      <input type="text" id="locationStatus" placeholder="Press Get Location" readonly />
+          <div>
+            <label for="distanceInfo">Distance Info</label>
+            <input type="text" id="distanceInfo" placeholder="Waiting for GPS..." readonly />
+          </div>
+        </div>
 
-      <div class="buttons">
-        <button onclick="getLocation()">Get Location</button>
-        <button onclick="markAttendance()">Mark Attendance</button>
+        <div class="actions">
+          <button class="btn-outline" onclick="verifyLocation()">Verify Location</button>
+          <button class="btn-green" onclick="markAttendance()">Mark Attendance</button>
+        </div>
+
+        <p id="message" class="message"></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Time</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="attendanceTable"></tbody>
+          </table>
+        </div>
       </div>
+    </section>
 
-      <p id="message"></p>
+    <section id="about" class="section">
+      <h3 class="section-title">About the Portal</h3>
+      <div class="card">
+        <p>
+          This training project was created for the Ministry of Justice Criminal Court.
+          It demonstrates a clean internal portal design with GPS-based attendance verification.
+        </p>
+      </div>
+    </section>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>Time</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="attendanceTable"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <h2>About</h2>
-    <div class="card">
-      <p>This is a simple training project for the Ministry of Justice Criminal Court.</p>
-    </div>
-  </section>
+    <section id="contact" class="section">
+      <h3 class="section-title">Contact</h3>
+      <div class="card">
+        <p>Email: info@moj.gov.sa</p>
+        <p>Phone: 1950</p>
+      </div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
